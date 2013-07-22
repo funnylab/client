@@ -49,7 +49,7 @@ public class TestClientCredentialsGrant {
 
 		// tonr is a trusted client of sparklr for this resource
 		RestTemplate template = new RestTemplate();
-		String result = template.getForObject(serverRunning.getUrl("/tonr2/trusted/message"), String.class);
+		String result = template.getForObject(serverRunning.getUrl("/client/trusted/message"), String.class);
 		// System.err.println(result);
 		assertEquals("{\"message\":\"Hello, Trusted Client\"}", result);
 
