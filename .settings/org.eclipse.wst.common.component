@@ -7,13 +7,13 @@
         <dependent-module archiveName="spring-security-oauth2-1.1.0.BUILD-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spring-security-oauth2/spring-security-oauth2">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module deploy-path="/" handle="module:/overlay/prj/sparklr2?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+        <dependent-module deploy-path="/" handle="module:/overlay/var/M2_REPO/org/springframework/security/oauth/sparklr2/1.1.0.BUILD-SNAPSHOT/sparklr2-1.1.0.BUILD-SNAPSHOT.war?unpackFolder=target/m2e-wtp/overlays&amp;includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
             <dependency-type>consumes</dependency-type>
         </dependent-module>
         <dependent-module deploy-path="/" handle="module:/overlay/slf/?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
             <dependency-type>consumes</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/client/target/classes"/>
-        <property name="context-root" value="tonr2"/>
+        <property name="context-root" value="client"/>
     </wb-module>
 </project-modules>

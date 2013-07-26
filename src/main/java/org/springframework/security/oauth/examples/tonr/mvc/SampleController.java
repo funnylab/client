@@ -9,7 +9,10 @@ import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.MemoryCacheImageInputStream;
 import javax.servlet.UnavailableException;
+import javax.servlet.http.HttpServletRequest;
 
+import org.junit.runners.Parameterized.Parameters;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,8 +34,17 @@ public class SampleController {
 	private SampleService sampleService;
 
 	@RequestMapping("/sample/photos")
-	public String photos(Model model) throws Exception {
+	public String photos(Model model, HttpServletRequest request) throws Exception {
+		String error = request.getParameter("error");
+		
+		System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr : " + error);
+		if(null == error){
+			System.out.println("eeeeeeeeeeeeeeeeeeeeeeee : " + error);
 		model.addAttribute("photoIds", sampleService.getSamplePhotoIds());
+		}else{
+			System.out.println("ggggggggggggggggggggggg : " + error);
+			model.addAttribute("photoIds", "");
+		}
 		return "sample";
 	}
 

@@ -34,11 +34,12 @@ public class SampleServiceImpl implements SampleService {
 	private RestOperations sampleRestTemplate;
 	private RestOperations trustedClientRestTemplate;
 
-	public List<String> getSamplePhotoIds() throws SampleException {
+	public List<String> getSamplePhotoIds() {
+		InputStream photosXML;
 		try {
 			
 			
-			InputStream photosXML = new ByteArrayInputStream(sampleRestTemplate.getForObject(
+			photosXML = new ByteArrayInputStream(sampleRestTemplate.getForObject(
 					URI.create(samplePhotoListURL), byte[].class));
 
 			final List<String> photoIds = new ArrayList<String>();
@@ -58,12 +59,10 @@ public class SampleServiceImpl implements SampleService {
 			});
 			return photoIds;
 		} catch (IOException e) {
-			throw new IllegalStateException(e);
 		} catch (SAXException e) {
-			throw new IllegalStateException(e);
 		} catch (ParserConfigurationException e) {
-			throw new IllegalStateException(e);
 		}
+		return null;
 	}
 
 	public InputStream loadSamplePhoto(String id) throws SampleException {
