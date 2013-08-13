@@ -15,8 +15,8 @@
 
 			// Add configuration for one or more providers.
 			jso_configure({
-				"sparklr": {
-					client_id: "tonr",
+				"oauth": {
+					client_id: "client",
 					redirect_uri: "http://localhost:8080/client/demo.html",
 					authorization: "http://localhost:8080/oauth/oauth/authorize",
 				}
@@ -24,8 +24,8 @@
 
 			// Perform a data request
 			$.oajax({
-				url: "http://localhost:8080/sparklr2/photos?format=json",
-				jso_provider: "sparklr", // Will match the config identifier
+				url: "http://localhost:8080/oauth/photos?format=json",
+				jso_provider: "oauth", // Will match the config identifier
 				jso_scopes: ["read"], // List of scopes (OPTIONAL)
 				jso_allowia: true, // Allow user interaction (OPTIONAL, default: false) 
 				dataType: 'json',
